@@ -1,0 +1,6 @@
+num_1 = int(input("첫 번째 정수를 입력하세요: "))
+num_2 = int(input("두 번째 정수를 입력하세요: "))
+print(num_1, '+', num_2, '=', num_1 + num_2)
+print(num_1, '-', num_2, '=', num_1 - num_2)
+print(num_1, '*', num_2, '=', num_1 * num_2)
+print(num_1, '/', num_2, '=', num_1 / num_2)

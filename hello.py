@@ -12,6 +12,6 @@ print(num1+num2, )
 color = "blue"
 print('my favorite color is', color, '!')
 
-string = input("당신의 이름을 입력하세요:")
-print("안녕하세요", string, "님")
-
+string = int(input("출생년도를 입력하시오: "))
+age = 2025-string
+print("your age is", age, ".")
