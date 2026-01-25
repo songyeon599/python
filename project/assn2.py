@@ -16,7 +16,7 @@ class Station:
         pass
 
     def refill(self):  # 상점으로부터 기름을 구매하는 함수 
-        print("Which one do you want to refill?")
+        print("\nWhich one do you want to refill?")
         print("0. Diesel")
         print("1. Gasoline")
         while True:
@@ -57,7 +57,7 @@ class Station:
             break
 
     def print_status(self):  # 현재 상태를 출력하는 함수 
-        print("---------STATUS---------")
+        print("\n---------STATUS---------")
         print(f"Day {self.day}")
         print(f"Rating: {self.rating}")
         print(f"Money: ${self.money}")
@@ -68,14 +68,14 @@ class Station:
 
     def default_screen(self): # 초기화면 출력 및 초기화면에서 (0. Wait for a vehicle)  
         while True:
-            print("---------GAS STATION---------")
+            print("\n---------GAS STATION---------")
             print("0. Wait for a vehicle")
             print("1. Refill tanks")
             print("2. Show current status")
             print("3. Go to the next day")
             print("4. End Game")
             while True:
-                select = int(input("select: "))
+                select = int(input("Select: "))
                 if select in [0, 1, 2, 3, 4]:
                     break
                 else:
@@ -98,7 +98,7 @@ class Station:
 
             else:
                 if self.money >= 5000:
-                    print(f"------Summary------")
+                    print(f"\n------Summary------")
                     print(f"Rating: {self.rating}")
                     print(f"Money: {self.money}")
                     print(f"Total customers handled: {self.total_num}")
@@ -112,7 +112,7 @@ class Station:
         self.customer += 1
         self.today_num += 1
         import time
-        print("Waiting...", end='')
+        print("\nWaiting...", end='')
         for i in range(3):
             print(".", end='')
             time.sleep(0.3)
@@ -143,7 +143,7 @@ class Station:
                         self.rating -= 1
                         return
                 else:
-                    print("Owner: Currently, we are not available for that")
+                    print("\nOwner: Currently, we are not available for that")
                     print("Driver: Well, see you then!")
                     print(f"Rating: {self.rating} -> {self.rating - 1}")
                     self.rating -= 1
@@ -312,8 +312,8 @@ class Station:
                 self.rating -= 1
                 return
 
-
     def next(self): # 다음 날로 이동하는 함수
+        print('\n다음 날로 이동합니다')
         self.day += 1
         self.today_num = 0
         self.update_price()
