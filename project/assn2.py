@@ -120,6 +120,7 @@ class Station:
         cars = [SUV(), Hybrid(), Bus(), Truck()]
         car = random.choice(cars)
         car.printInfo()
+        # 20%의 확률로 서비스를 요청
         if random.choice([1, 2, 3, 4, 5]) == 1:
             if car.vehicle_type == "Bus" or car.vehicle_type == "Truck":
                 print("\nDriver: some DEF for free? (costs $50 yet increases rating by 3)")
@@ -194,9 +195,11 @@ class Station:
             else:
                 print(f"I'd like {car.needed} liters, please.")
             print(f"Diesel left: {self.diesel_left} Liters, Gasoline left: {self.gasoline_left} Liters")
-            
+        # 내가 최근에 선택한 연료     
         current_method_fuel = "Diesel"
+        # 내가 최근에 선택한 연료의 양
         current_method_liter = 10
+        #가솔린과 디젤을 바꾸기 위해서
         current_selling_price = self.diesel_price
         fuel_left = self.diesel_left
     
@@ -243,7 +246,9 @@ class Station:
             
             elif choice == 1:
                 if car.fuel_type == current_method_fuel:
+                    # 원하는 양이랑 입력한 양이 같을때  
                     if (car.full == True and current_method_liter == "F") or (car.needed == current_method_liter):
+                        # 차가 필요한 연료 <= 보유한 연료 양
                         if car.needed <= fuel_left:
                             print('\nChecking the conditions...')
                             print(f'Money: ${self.money} -> {self.money + car.needed * current_selling_price}')
@@ -266,6 +271,7 @@ class Station:
                             print(f"Rating: {self.rating} -> {self.rating - 1}")
                             self.rating -= 1
                             return
+                    # 차에 주입할 수 있는 양 < 주입한 양
                     elif current_method_liter >= car.capacity - car.cur_fuel:
                         print("\nChecking the conditions...")
                         print(f"Fuel type: {car.fuel_type}")
@@ -282,6 +288,7 @@ class Station:
                         print(f"Rating: {self.rating} -> {self.rating -3}")
                         self.rating -= 3
                         return
+                    # 요구한 양 > 주입한 양
                     else:
                         print("\nChecking the conditions...")
                         print(f"Fuel type: {car.fuel_type}")
@@ -298,6 +305,7 @@ class Station:
                         print(f"Rating: {self.rating} -> {self.rating - 1}")
                         self.rating -= 1
                         return
+                # 다른 종류의 원료를 넣었을 때
                 else:
                     print("\nChecking the condition...")
                     print(f"Requested: {car.fuel_type}, Selected: {current_method_fuel}")
@@ -305,6 +313,7 @@ class Station:
                     print(f"Rating: {self.rating} -> {self.rating - 5}")
                     self.rating -= 5
                     return
+            # 거절했을 때
             else:
                 print("\nOwner: Currently, we are not available for that.")
                 print("Driver: Well, see you then!")
